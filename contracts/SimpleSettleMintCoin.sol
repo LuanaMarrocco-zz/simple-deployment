@@ -18,7 +18,7 @@ pragma solidity^0.6.4;
       * @param _amount uint
       * @return boolean bool
       */
-    	function sendTheCoin(address _receive, uint _amount) public returns(bool) {
+    	function sendCoin(address _receive, uint _amount) public returns(bool) {
     		if (balancesOfUsers[msg.sender] < _amount)
     			return false;
     		balancesOfUsers[msg.sender] -= _amount;
@@ -32,7 +32,7 @@ pragma solidity^0.6.4;
       * @param _addr address
       * @return uint uint
       */
-    	function getTheBalance (address _addr) public view returns(uint) {
+    	function getBalance (address _addr) public view returns(uint) {
     		return balancesOfUsers[_addr];
     	}
 
@@ -41,7 +41,7 @@ pragma solidity^0.6.4;
       * @dev Get the balance of the msg.sender address
       * @return uint uint
       */
-    	function getThePersonalBalance() public view returns(uint) {
-    		return getTheBalance(msg.sender);
+    	function getPersonalBalance() public view returns(uint) {
+    		return getBalance(msg.sender);
     	}
     }

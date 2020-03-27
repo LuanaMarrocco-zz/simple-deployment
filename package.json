@@ -11,27 +11,11 @@
     "build:contracts": "typechain --target truffle './build/contracts/*.json'",
     "build:ts": "tsc --declaration",
     "build": "npm run build:truffle && npm run build:contracts && npm run build:ts",
-    "test": "truffle test",
     "lint:contracts": "solhint --max-warnings 0 \"contracts/**/*.sol\"",
     "lint:ts": "tslint -c tslint.json -p tsconfig.json",
     "lint": "npm run lint:contracts && npm run lint:ts",
-    "pretest": "npm run lint && npm run build",
-    "watch": "nodemon --watch . --exec npm run test",
-    "truffle": "truffle",
-    "prepublishOnly": "docker build --build-arg NPM_TOKEN=${NPM_TOKEN} -t settlemint/viadonbosco .",
-    "solium": "solium",
-    "semantic-release": "semantic-release"
+    "truffle": "truffle"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/settlemint/viadonbosco"
-  },
-  "author": "SettleMint <hello@settlemint.com>",
-  "license": "SEE LICENSE IN mint-license.txt",
-  "bugs": {
-    "url": "http://github.com/settlemint/viadonbosco/issues"
-  },
-  "homepage": "http://github.com/settlemint/viadonbosco",
   "devDependencies": {
     "@semantic-release/changelog": "^3.0.4",
     "@semantic-release/github": "^5.4.3",
@@ -92,7 +76,6 @@
     ]
   },
   "dependencies": {
-    "@settlemint/mint-solidity": "^1.24.0-beta.4",
     "faker": "^4.1.0",
     "minimatch": "^3.0.4",
     "@truffle/hdwallet-provider": "^1.0.33",
