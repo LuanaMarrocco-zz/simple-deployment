@@ -16,22 +16,6 @@ let bpaasconfig = {
 };
 
 module.exports = {
-  storeIpfsHash: async data => {
-    try {
-      const ipfs = new IPFS({
-        host: bpaasconfig.ipfsHost,
-        port: bpaasconfig.ipfsPort,
-        protocol: bpaasconfig.ipfsProtocol,
-        "api-path": `${bpaasconfig.ipfsPathPrefix}/api/v0/`
-      });
-      const dataBuff = Buffer.from(JSON.stringify(data), "utf8");
-      const ipfsResponse = await ipfs.add(dataBuff);
-      console.log(`--> Stored a file on IPFS: ${ipfsResponse[0].hash}`);
-      return ipfsResponse[0].hash;
-    } catch (error) {
-      console.log(error);
-    }
-  },
   test_file_extension_regexp: /.*\.ts$/,
   migrations_directory: "./dist",
   networks: {
