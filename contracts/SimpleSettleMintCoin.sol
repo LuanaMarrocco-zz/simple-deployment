@@ -14,15 +14,15 @@ pragma solidity^0.6.4;
       /**
       * @notice Send coin
       * @dev Send coin
-      * @param _receive address
+      * @param _receiver address
       * @param _amount uint
       * @return boolean bool
       */
-    	function sendCoin(address _receive, uint _amount) public returns(bool) {
+    	function sendCoin(address _receiver, uint _amount) public returns(bool) {
     		if (balancesOfUsers[msg.sender] < _amount)
     			return false;
     		balancesOfUsers[msg.sender] -= _amount;
-    		balancesOfUsers[_receive] += _amount;
+    		balancesOfUsers[_receiver] += _amount;
     		return true;
     	}
 

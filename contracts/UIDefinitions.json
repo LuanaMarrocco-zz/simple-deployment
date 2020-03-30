@@ -1,0 +1,32 @@
+{
+  "ipfsRequiredFields": [],
+
+  "ipfsOptionalFields": [],
+
+  "ipfsOptionalFieldsForMethod": {},
+  "ipfsRequiredFieldsForMethod": {},
+
+  "contractRequiredFields": ["_receiver", "_amount", "_addr"],
+
+  "contractOptionalFields": [],
+
+  "fileFields": [],
+
+  "dateFields": [],
+
+  "textFields": [],
+
+  "selectFields": {},
+
+  "knownWalletSelectFields": ["_receiver", "_addr"],
+
+  "roleRegistrySelectFields": [],
+
+  "subItemActions": [],
+
+  "contractActions": ["sendCoin", "getBalance", "getPersonalBalance"],
+
+  "listFields": [],
+
+  "fieldsWithDecimals": ["_amount"]
+}

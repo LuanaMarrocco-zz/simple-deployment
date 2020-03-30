@@ -1,7 +1,7 @@
 {
   "name": "SettleMintCoin",
   "version": "0.0.0",
-  "description": "The boilerplate project setup for Mint enabled projects",
+  "description": "The project setup for deploying any smart contract",
   "main": "truffle-config.js",
   "directories": {
     "test": "test"
