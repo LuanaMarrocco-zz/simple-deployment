@@ -7,10 +7,8 @@ contract SimpleSettleMintCoin {
   mapping (address => uint) balancesOfUsers;
   string public _uiFieldDefinitionsHash;
 
-
   constructor() public {
   	balancesOfUsers[msg.sender] = 10000;
-
   }
 
   /**
