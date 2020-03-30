@@ -76,10 +76,11 @@
     ]
   },
   "dependencies": {
-    "faker": "^4.1.0",
-    "minimatch": "^3.0.4",
+    "@pinata/sdk": "^1.1.6",
     "@truffle/hdwallet-provider": "^1.0.33",
     "dotenv": "^8.2.0",
+    "faker": "^4.1.0",
+    "minimatch": "^3.0.4",
     "truffle-privatekey-provider": "latest"
   }
 }

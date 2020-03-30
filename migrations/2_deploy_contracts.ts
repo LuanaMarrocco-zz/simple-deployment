@@ -1,11 +1,20 @@
-
 const SimpleSettleMintCoin = artifacts.require('SimpleSettleMintCoin');
-const {storeIpfsHash} = require('../../truffle-config.js'); // two dirs up, because it is compiled into ./dist/migrations
+// tslint:disable:no-var-requires
+const pinataSDK = require('@pinata/sdk');
+const uiDefinitions = require('../contracts/UIDefinitions.json');
+
+
+export async function storeIpfsHash(data: any) {
+    const pinata = pinataSDK('a6b554c7329cb1e7a7c6', '0380624d42ec4723b552db9e797b24c0300b68c3e304b4c988253ddb426f36ce');
+    const {IpfsHash} = await pinata.pinJSONToIPFS(data);
+
+    console.log(`--> Stored a file on IPFS: ${IpfsHash}`);
+    return IpfsHash;
+}
 
 module.exports = async (deployer: Truffle.Deployer, network: string, accounts: string[]) => {
-  const uiDefinitions = require('../../contracts/UIDefinitions.json');
-  const hash = await storeIpfsHash(uiDefinitions)
-  await deployer.deploy(SimpleSettleMintCoin);
-  const deployedSMC = await SimpleSettleMintCoin.deployed();
-  await deployedSMC.setUIFieldDefinitionsHash(hash);
+    const hash = await storeIpfsHash(uiDefinitions)
+    await deployer.deploy(SimpleSettleMintCoin);
+    const deployedSMC = await SimpleSettleMintCoin.deployed();
+    await deployedSMC.setUIFieldDefinitionsHash(hash);
 };
