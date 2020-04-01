@@ -2,13 +2,12 @@ pragma solidity^0.6.4;
 
 contract SimpleSettleMintCoin {
 
-  string public symbol = 'SMC';
-
   mapping (address => uint) balancesOfUsers;
+  mapping (address => string) userHashes;
+
   string public _uiFieldDefinitionsHash;
 
   constructor() public {
-  	balancesOfUsers[msg.sender] = 10000;
   }
 
   /**
@@ -19,11 +18,20 @@ contract SimpleSettleMintCoin {
   * @return boolean bool
   */
   function sendCoin(address _receiver, uint _amount) public returns(bool) {
-  	if (balancesOfUsers[msg.sender] < _amount)
+    if (balancesOfUsers[msg.sender] < _amount)
   		return false;
   	balancesOfUsers[msg.sender] -= _amount;
   	balancesOfUsers[_receiver] += _amount;
   	return true;
+  }
+
+  /**
+  * @notice Create a new account for a new user
+  * @param userIPFSHash string
+  */
+  function initUserAccount(string memory userIPFSHash) public {
+    balancesOfUsers[msg.sender] = 100;
+    userHashes[msg.sender] = userIPFSHash;
   }
 
   /**
@@ -34,15 +42,6 @@ contract SimpleSettleMintCoin {
   */
   function getBalance (address _addr) public view returns(uint) {
   	return balancesOfUsers[_addr];
-  }
-
-  /**
-  * @notice Get the Balance of the msg.sender address
-  * @dev Get the balance of the msg.sender address
-  * @return uint uint
-  */
-  function getPersonalBalance() public view returns(uint) {
-  	return getBalance(msg.sender);
   }
 
   /**

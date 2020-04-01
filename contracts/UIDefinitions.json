@@ -4,9 +4,11 @@
   "ipfsOptionalFields": [],
 
   "ipfsOptionalFieldsForMethod": {},
-  "ipfsRequiredFieldsForMethod": {},
+  "ipfsRequiredFieldsForMethod": {
+    "initUserAccount": ["firstName", "lastName"]
+  },
 
-  "contractRequiredFields": ["_receiver", "_amount", "_addr"],
+  "contractRequiredFields": [],
 
   "contractOptionalFields": [],
 
@@ -18,13 +20,13 @@
 
   "selectFields": {},
 
-  "knownWalletSelectFields": ["_receiver", "_addr"],
+  "knownWalletSelectFields": ["_receiver"],
 
   "roleRegistrySelectFields": [],
 
   "subItemActions": [],
 
-  "contractActions": ["sendCoin", "getBalance", "getPersonalBalance"],
+  "contractActions": ["sendCoin", "initUserAccount"],
 
   "listFields": [],
 

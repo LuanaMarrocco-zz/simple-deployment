@@ -1,6 +1,7 @@
 const HDWalletProvider = require("@truffle/hdwallet-provider");
 const solcconfig = require("./solcconfig.json");
 const Web3 = require("web3");
+const IPFS = require("ipfs-http-client");
 
 require("dotenv").config();
 
@@ -17,6 +18,22 @@ let bpaasconfig = {
 
 module.exports = {
   test_file_extension_regexp: /.*\.ts$/,
+  storeIpfsHash: async data => {
+    try {
+      const ipfs = new IPFS({
+        host: bpaasconfig.ipfsHost,
+        port: bpaasconfig.ipfsPort,
+        protocol: bpaasconfig.ipfsProtocol,
+        "api-path": `${bpaasconfig.ipfsPathPrefix}/api/v0/`
+      });
+      const dataBuff = Buffer.from(JSON.stringify(data), "utf8");
+      const ipfsResponse = await ipfs.add(dataBuff);
+      console.log(`--> Stored a file on IPFS: ${ipfsResponse[0].hash}`);
+      return ipfsResponse[0].hash;
+    } catch (error) {
+      console.log(error);
+    }
+  },
   migrations_directory: "./dist",
   networks: {
     development: {
