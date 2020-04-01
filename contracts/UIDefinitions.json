@@ -16,7 +16,7 @@
 
   "dateFields": [],
 
-  "textFields": [],
+  "textFields": ["firstName", "lastName"],
 
   "selectFields": {},
 

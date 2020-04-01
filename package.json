@@ -1,6 +1,6 @@
 {
   "name": "SettleMintCoin",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "The project setup for deploying any smart contract",
   "main": "truffle-config.js",
   "directories": {
@@ -52,35 +52,12 @@
       "git add"
     ]
   },
-  "publishConfig": {
-    "access": "restricted"
-  },
-  "release": {
-    "verifyConditions": [
-      "@semantic-release/npm",
-      "semantic-release-docker"
-    ],
-    "prepare": [
-      "@semantic-release/npm"
-    ],
-    "publish": [
-      "@semantic-release/npm",
-      "@semantic-release/github",
-      {
-        "path": "semantic-release-docker",
-        "name": "settlemint/viadonbosco"
-      }
-    ],
-    "success": [
-      "@semantic-release/github"
-    ]
-  },
   "dependencies": {
     "@pinata/sdk": "^1.1.6",
     "@truffle/hdwallet-provider": "^1.0.33",
     "dotenv": "^8.2.0",
     "faker": "^4.1.0",
-    "ipfs-http-client": "^43.0.0",
+    "ipfs-http-client": "^39.0.0",
     "minimatch": "^3.0.4",
     "truffle-privatekey-provider": "latest"
   }

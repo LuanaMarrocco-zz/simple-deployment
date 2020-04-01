@@ -27,11 +27,11 @@ contract SimpleSettleMintCoin {
 
   /**
   * @notice Create a new account for a new user
-  * @param userIPFSHash string
+  * @param ipfsFieldContainerHash string
   */
-  function initUserAccount(string memory userIPFSHash) public {
+  function initUserAccount(string memory ipfsFieldContainerHash) public {
     balancesOfUsers[msg.sender] = 100;
-    userHashes[msg.sender] = userIPFSHash;
+    userHashes[msg.sender] = ipfsFieldContainerHash;
   }
 
   /**
